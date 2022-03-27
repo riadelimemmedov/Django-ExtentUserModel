@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+    
+    <br>
+    {% if error_message %}
+        <div class="ui red message">
+            <strong>{{error_message}}</strong>
+        </div>
+        
+    {% endif %}
+
+    <form action="{% url 'loginView' %}" class="ui form" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="ui positive button">Login</button>
+    </form>
+{% endblock content %}

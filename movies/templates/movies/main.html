@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Select Movie{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'movies:movie-select-view' %}" class="ui form" method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="ui button primary">Select</button>
+    </form>
+{% endblock content %}
+

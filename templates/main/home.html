@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+    <div class="ui grid">
+        <div class="row">
+            <div class="eight wide column">
+                <h1>Home</h1>
+                <br>
+                <h3>Date : {{date_today}}</h3>
+            </div>
+            <div class="eight wide column">
+                <a href="{% url 'users:change-password' %}">
+                    <button class="ui button">Change Password</button>
+                </a>
+                <br><br>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logoutView' %}">
+                            <button class="ui button negative">Logout</button>
+                        </a>
+                    {% endif %}
+                <br><br>
+                <a href="{% url 'movies:movie-select-view' %}" class="ui button primary">Movie Select</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

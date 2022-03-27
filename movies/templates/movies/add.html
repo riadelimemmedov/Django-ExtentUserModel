@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Add Movie{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'movies:add-movie-view' %}" class="ui form" method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="ui button positive">Add</button>
+    </form>
+{% endblock content %}
